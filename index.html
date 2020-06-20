@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jsmpg.js"></script>
+</head>
+<body>
+    <div>
+        <canvas id="video">
+
+        </canvas>
+    </div>
+    <script type="text/javascript">
+        var canvas = document.getElementById('video');
+        var ws = new WebSocket("ws://192.168.4.89:29000");
+
+        var player = new jsmpeg(ws,{canvas:canvas, audio:true, autoplay:true})
+
+    //    var player = new JSMpeg.Player('ws://192.168.0.43:29000', {
+    //         canvas: document.getElementById('video') // Canvas should be a canvas DOM element
+    //     })	
+    </script>
+</body>
+</html>
