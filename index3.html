@@ -18,7 +18,7 @@
 
 <body>
     <div>
-        <canvas style="width: 700px;" id="video">
+        <canvas style="width: 700px;" id="video2">
 
         </canvas>
     </div>
@@ -29,10 +29,12 @@
         // var url = 'ws://192.168.0.43:5000';
         // var player = new JSMpeg.Player(url, { canvas: canvas });
 
-        var canvas = document.getElementById('video');
-        var ws = new WebSocket("ws://192.168.0.43:9000");
+  
 
-        var player = new jsmpeg(ws, { canvas: canvas, audio: true, autoplay: true })
+        var canvas2 = document.getElementById('video2');
+        var ws2 = new WebSocket("ws://192.168.0.43:9001");
+
+        var player2 = new jsmpeg(ws2, { canvas: canvas2, audio: true, autoplay: true })
 
         // var canvas = document.getElementById('video');
         // var url = 'ws://localhost:9999';

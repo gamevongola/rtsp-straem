@@ -30,7 +30,7 @@
         // var player = new JSMpeg.Player(url, { canvas: canvas });
 
         var canvas = document.getElementById('video');
-        var ws = new WebSocket("ws://192.168.0.43:9000");
+        var ws = new WebSocket("ws://192.168.0.43:9003");
 
         var player = new jsmpeg(ws, { canvas: canvas, audio: true, autoplay: true })
 
