@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Completible" content="ie=edge">
     <title>Document</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsmpeg/0.2/jsmpg.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <!-- <style type="text/css">
     html,
@@ -21,6 +22,11 @@
         <canvas style="width: 700px;" id="video">
 
         </canvas>
+        <br>
+        <img style="cursor: pointer;" id="moveleft" width="50" height="50" src="/images/left.png" />
+        <img style="cursor: pointer;" id="moveright" width="50" height="50" src="/images/right.png" />
+        <img style="cursor: pointer;" id="movebelow" width="50" height="50" src="/images/arrow_below.png" />
+        <img style="cursor: pointer;" id="moveabove" width="50" height="50" src="/images/arrow_above.png" />
     </div>
     <!-- <canvas id="video-canvas"></canvas> -->
     <script type="text/javascript">
@@ -30,13 +36,60 @@
         // var player = new JSMpeg.Player(url, { canvas: canvas });
 
         var canvas = document.getElementById('video');
-        var ws = new WebSocket("ws://192.168.0.43:9000");
+        var ws = new WebSocket("ws://192.168.0.83:9010");
 
         var player = new jsmpeg(ws, { canvas: canvas, audio: true, autoplay: true })
 
         // var canvas = document.getElementById('video');
         // var url = 'ws://localhost:9999';
         // var player = new JSMpeg.Player(url, { canvas: canvas });
+        $('#moveleft').click(function () {
+            var settings = {
+                "url": `http://localhost:3000/moveleft/192.168.3.83:10080`,
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
+
+        $('#moveright').click(function () {
+            var settings = {
+                "url": "http://localhost:3000/moveright/192.168.3.83:10080",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
+
+        $('#movebelow').click(function () {
+            var settings = {
+                "url": "http://localhost:3000/movelow/192.168.3.83:10080",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
+
+        $('#moveabove').click(function () {
+            var settings = {
+                "url": "http://localhost:3000/movehight/192.168.3.83:10080",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
 
     </script>
 </body>
