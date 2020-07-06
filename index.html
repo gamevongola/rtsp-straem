@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,10 @@
     <title>Document</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsmpeg/0.2/jsmpg.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <!-- <style type="text/css">
     html,
@@ -23,10 +26,14 @@
 
         </canvas>
         <br>
-        <img style="cursor: pointer;" id="moveleft" width="50" height="50" src="/images/left.png" />
-        <img style="cursor: pointer;" id="moveright" width="50" height="50" src="/images/right.png" />
-        <img style="cursor: pointer;" id="movebelow" width="50" height="50" src="/images/arrow_below.png" />
-        <img style="cursor: pointer;" id="moveabove" width="50" height="50" src="/images/arrow_above.png" />
+
+        <img style="cursor: pointer;" id="moveleft" width="42" height="42" src="/images/left-arrow.png" />
+        <img style="cursor: pointer;" id="moveright" width="42" height="42" src="/images/right-chevron.png" />
+        <img style="cursor: pointer;" id="movebelow" width="50" height="50" src="/images/down-arrow.png" />
+        <img style="cursor: pointer;" id="moveabove" width="50" height="50" src="/images/up-chevron.png" />
+         &nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+        <img style="cursor: pointer;" id="movezoom_out" width="40" height="40" src="/images/zoom.png" />
+        <img style="cursor: pointer;" id="movezoom_in" width="40" height="40" src="/images/searcher.png" />
     </div>
     <!-- <canvas id="video-canvas"></canvas> -->
     <script type="text/javascript">
@@ -82,6 +89,30 @@
         $('#moveabove').click(function () {
             var settings = {
                 "url": "http://localhost:3000/movehight/192.168.3.83:10080",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
+
+        $('#movezoom_out').click(function () {
+            var settings = {
+                "url": "http://localhost:3000/movezoomout/192.168.3.83:10080",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                
+            });
+        });
+
+        $('#movezoom_in').click(function () {
+            var settings = {
+                "url": "http://localhost:3000/movezoomin/192.168.3.83:10080",
                 "method": "GET",
                 "timeout": 0,
             };

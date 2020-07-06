@@ -200,6 +200,84 @@ app.get('/movelow/:id', (req, res) =>{
   res.end()
 })
 
+app.get('/movezoomout/:id', (req, res) =>{
+  const onvif = require('node-onvif');
+
+  let device = new onvif.OnvifDevice({
+    xaddr: `http://${req.params.id}/onvif/device_service`,
+    user: 'admin',
+    pass: 'ciimostoiot95'
+  });
+
+  device.init().then(() => {
+
+    let params = {
+      'speed': { x: 0.0, y: 0.0, z: -1.0 },
+      'timeout': 60
+    };
+
+    device.ptzMove(params).then(() => {
+      console.log('Succeeded to move.');
+
+      setTimeout(() => {
+        device.ptzStop().then(() => {
+          console.log('Succeeded to stop.');
+        }).catch((error) => {
+          console.error(error);
+        });
+      }, 1500);
+    }).catch((error) => {
+      console.error(error);
+    });
+
+  }).then(() => {
+    console.log('Done!');
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  res.end()
+})
+
+app.get('/movezoomin/:id', (req, res) =>{
+  const onvif = require('node-onvif');
+
+  let device = new onvif.OnvifDevice({
+    xaddr: `http://${req.params.id}/onvif/device_service`,
+    user: 'admin',
+    pass: 'ciimostoiot95'
+  });
+
+  device.init().then(() => {
+
+    let params = {
+      'speed': { x: 0.0, y: 0.0, z: 1.0 },
+      'timeout': 60
+    };
+
+    device.ptzMove(params).then(() => {
+      console.log('Succeeded to move.');
+
+      setTimeout(() => {
+        device.ptzStop().then(() => {
+          console.log('Succeeded to stop.');
+        }).catch((error) => {
+          console.error(error);
+        });
+      }, 1500);
+    }).catch((error) => {
+      console.error(error);
+    });
+
+  }).then(() => {
+    console.log('Done!');
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  res.end()
+})
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
 Stream = require('node-rtsp-stream')
