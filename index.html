@@ -21,19 +21,22 @@
 </style> -->
 
 <body>
-    <div>
+    <div style="position: relative;width: 700px;">
+        <div
+            style="position: absolute;top: 1pc;background-color: white;border-radius: 10px;opacity: 0.7;right: 1pc;display: grid;">
+            <img style="cursor: pointer;" id="movezoom_in" width="40" height="40" src="/images/searcher.png" />
+            <img style="cursor: pointer;" id="movezoom_out" width="40" height="40" src="/images/zoom.png" />
+        </div>
         <canvas style="width: 700px;" id="video">
-
+    
         </canvas>
         <br>
-
-        <img style="cursor: pointer;" id="moveleft" width="42" height="42" src="/images/left-arrow.png" />
-        <img style="cursor: pointer;" id="moveright" width="42" height="42" src="/images/right-chevron.png" />
-        <img style="cursor: pointer;" id="movebelow" width="50" height="50" src="/images/down-arrow.png" />
-        <img style="cursor: pointer;" id="moveabove" width="50" height="50" src="/images/up-chevron.png" />
-         &nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img style="cursor: pointer;" id="movezoom_out" width="40" height="40" src="/images/zoom.png" />
-        <img style="cursor: pointer;" id="movezoom_in" width="40" height="40" src="/images/searcher.png" />
+        <div style="position: absolute;bottom: 1pc;background-color: white;border-radius: 10px;opacity: 0.7;">
+            <img style="cursor: pointer;" id="moveleft" width="42" height="42" src="/images/left-arrow.png" />
+            <img style="cursor: pointer;" id="moveright" width="42" height="42" src="/images/right-chevron.png" />
+            <img style="cursor: pointer;" id="movebelow" width="50" height="50" src="/images/down-arrow.png" />
+            <img style="cursor: pointer;" id="moveabove" width="50" height="50" src="/images/up-chevron.png" />
+        </div>
     </div>
     <!-- <canvas id="video-canvas"></canvas> -->
     <script type="text/javascript">
@@ -41,9 +44,9 @@
         // var canvas = document.getElementById('video-canvas');
         // var url = 'ws://192.168.0.43:5000';
         // var player = new JSMpeg.Player(url, { canvas: canvas });
-
+        var ipcam = `192.168.3.61:10080`
         var canvas = document.getElementById('video');
-        var ws = new WebSocket("ws://192.168.0.83:9010");
+        var ws = new WebSocket("ws://localhost:9010");
 
         var player = new jsmpeg(ws, { canvas: canvas, audio: true, autoplay: true })
 
@@ -52,7 +55,7 @@
         // var player = new JSMpeg.Player(url, { canvas: canvas });
         $('#moveleft').click(function () {
             var settings = {
-                "url": `http://localhost:3000/moveleft/192.168.3.83:10080`,
+                "url": `http://localhost:3000/moveleft/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -64,7 +67,7 @@
 
         $('#moveright').click(function () {
             var settings = {
-                "url": "http://localhost:3000/moveright/192.168.3.83:10080",
+                "url": `http://localhost:3000/moveright/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -76,7 +79,7 @@
 
         $('#movebelow').click(function () {
             var settings = {
-                "url": "http://localhost:3000/movelow/192.168.3.83:10080",
+                "url": `http://localhost:3000/movelow/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -88,7 +91,7 @@
 
         $('#moveabove').click(function () {
             var settings = {
-                "url": "http://localhost:3000/movehight/192.168.3.83:10080",
+                "url": `http://localhost:3000/movehight/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -100,7 +103,7 @@
 
         $('#movezoom_out').click(function () {
             var settings = {
-                "url": "http://localhost:3000/movezoomout/192.168.3.83:10080",
+                "url": `http://localhost:3000/movezoomout/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -112,7 +115,7 @@
 
         $('#movezoom_in').click(function () {
             var settings = {
-                "url": "http://localhost:3000/movezoomin/192.168.3.83:10080",
+                "url": `http://localhost:3000/movezoomin/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
