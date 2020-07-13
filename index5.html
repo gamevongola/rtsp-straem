@@ -48,7 +48,7 @@
         var ipcam = `192.168.3.68:10080`
 
         var canvas = document.getElementById('video');
-        var ws = new WebSocket("ws://localhost:9003");
+        var ws = new WebSocket("ws://192.168.0.78:9003");
 
         var player = new jsmpeg(ws, { canvas: canvas, audio: true, autoplay: true })
 
@@ -58,7 +58,7 @@
 
         $('#moveleft').click(function () {
             var settings = {
-                "url": `http://localhost:3000/moveleft/${ipcam}`,
+                "url": `http://192.168.0.78:3000/moveleft/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -70,7 +70,7 @@
 
         $('#moveright').click(function () {
             var settings = {
-                "url": `http://localhost:3000/moveright/${ipcam}`,
+                "url": `http://192.168.0.78:3000/moveright/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -82,7 +82,7 @@
 
         $('#movebelow').click(function () {
             var settings = {
-                "url": `http://localhost:3000/movelow/${ipcam}`,
+                "url": `http://192.168.0.78:3000/movelow/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -94,7 +94,7 @@
 
         $('#moveabove').click(function () {
             var settings = {
-                "url": `http://localhost:3000/movehight/${ipcam}`,
+                "url": `http://192.168.0.78:3000/movehight/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -106,7 +106,7 @@
 
         $('#movezoom_out').click(function () {
             var settings = {
-                "url": `http://localhost:3000/movezoomout/${ipcam}`,
+                "url": `http://192.168.0.78:3000/movezoomout/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };
@@ -118,7 +118,7 @@
 
         $('#movezoom_in').click(function () {
             var settings = {
-                "url": `http://localhost:3000/movezoomin/${ipcam}`,
+                "url": `http://192.168.0.78:3000/movezoomin/${ipcam}`,
                 "method": "GET",
                 "timeout": 0,
             };

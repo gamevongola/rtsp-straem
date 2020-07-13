@@ -51,14 +51,14 @@ app.get('/moveleft/:id', (req, res) =>{
     user: 'admin',
     pass: 'ciimostoiot95'
   });
-
+  
   device.init().then(() => {
 
     let params = {
       'speed': { x: -1.0, y: 0.0, z: 0.0 },
       'timeout': 60
     };
-    
+    console.log(device.current_profile.snapshot);
     device.ptzMove(params).then(() => {
       console.log('Succeeded to move.');
 
@@ -280,49 +280,49 @@ app.get('/movezoomin/:id', (req, res) =>{
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
-// Stream = require('node-rtsp-stream')
-// stream = new Stream({
-//   name: 'name',
-//   streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=5&subtype=0',
-//   wsPort: 9010,
-//   ffmpegOptions: { 
-//     '-stats': '', 
-//     '-r': 30 
-//   }
-// });
+Stream = require('node-rtsp-stream')
+stream = new Stream({
+  name: 'name',
+  streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=5&subtype=0',
+  wsPort: 9010,
+  ffmpegOptions: { 
+    '-stats': '', 
+    '-r': 30 
+  }
+});
 
-// Stream2 = require('node-rtsp-stream')
-// Stream2 = new Stream({
-//   name: 'name',
-//   streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=12&subtype=0',
-//   wsPort: 9001,
-//   ffmpegOptions: { 
-//     '-stats': '', 
-//     '-r': 30 
-//   }
-// });
+Stream2 = require('node-rtsp-stream')
+Stream2 = new Stream({
+  name: 'name',
+  streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=12&subtype=0',
+  wsPort: 9001,
+  ffmpegOptions: { 
+    '-stats': '', 
+    '-r': 30 
+  }
+});
 
-// Stream3 = require('node-rtsp-stream')
-// Stream3 = new Stream({
-//   name: 'name',
-//   streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=13&subtype=0',
-//   wsPort: 9002,
-//   ffmpegOptions: { 
-//     '-stats': '', 
-//     '-r': 30
-//   }
-// });
+Stream3 = require('node-rtsp-stream')
+Stream3 = new Stream({
+  name: 'name',
+  streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=13&subtype=0',
+  wsPort: 9002,
+  ffmpegOptions: { 
+    '-stats': '', 
+    '-r': 30
+  }
+});
 
-// Stream4 = require('node-rtsp-stream')
-// Stream4 = new Stream({
-//   name: 'name',
-//   streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=14&subtype=0',
-//   wsPort: 9003,
-//   ffmpegOptions: { 
-//     '-stats': '', 
-//     '-r': 30 
-//   }
-// });
+Stream4 = require('node-rtsp-stream')
+Stream4 = new Stream({
+  name: 'name',
+  streamUrl: 'rtsp://guest:Passw0rd@192.168.3.11:554/cam/realmonitor?channel=14&subtype=0',
+  wsPort: 9003,
+  ffmpegOptions: { 
+    '-stats': '', 
+    '-r': 30 
+  }
+});
 //------------------------------------------------------------------------------------------------------------//
 
 // const Stream = require('videoStream')
