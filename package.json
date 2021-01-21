@@ -17,7 +17,7 @@
     "node-rtsp-stream": "0.0.9",
     "node-rtsp-stream-es6": "^1.0.7",
     "rtsp-ffmpeg": "0.0.15",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "videostream": "^3.2.1"
   }
 }
